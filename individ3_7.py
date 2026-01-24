@@ -2,18 +2,19 @@
 # -*- coding: utf-8 -*-
 
 if __name__ == '__main__':
-    Mytuple = (1, 2, 4, 3, 6, 8, 5)
-    print(Mytuple)
-    last = -1
-    for i in range(len(Mytuple)):
-        if Mytuple[i] % 2 == 0 and Mytuple[i + 1] % 2 == 0:
-            last = i
+    mytup = (1, 2, 4, 3, 6, 5)
+    print(mytup)
 
-    if last != -1:
-        result = Mytuple[:last]
-        if result:
-            print("Элементы, предшествующие последней паре соседних чётных чисел:",*result)
-        else:
-            print("Перед последней парой нет элементов.")
-    else:
-        print("В массиве нет пары соседних чётных чисел.")
+    index = list()
+    j = -1
+    for i in mytup:
+        first = i % 2 ==0
+        second = j % 2 == 0
+        if first and second:
+            index += str(mytup.index(i))
+        elif i % 2 == 0 and j % 2 != 0 :
+            j = i
+
+    s = int(index[0])
+    sli = mytup[0:s + 1]
+    print(sli)
